@@ -1,18 +1,26 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var LengthRangeEl = document.querySelector('#length-range');
-var LengthEl = document.querySelector('#length-label');
-var symbolsCheckboxEl = document.querySelector('#allow-symbols');
-var lowercaseCheckboxEl = document.querySelector('#allow-lowercase');
-var uppercaseCheckboxEl = document.querySelector('#allow-uppercase');
-var numbersCheckboxEl = document.querySelector('#allow-numbers');
+var lengthRange = document.querySelector('#length-range');
+var length = document.querySelector('#length-label');
+var symbolsCheckbox = document.querySelector('#allow-symbols');
+var lowercaseCheckbox = document.querySelector('#allow-lowercase');
+var uppercaseCheckbox = document.querySelector('#allow-uppercase');
+var numbersCheckbox = document.querySelector('#allow-numbers');
 
 const lowercase = "abcdefghijklmnopqrstuvwxyz";
 const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const numbers = "1234567890";
+const numbers = "0123456789";
 const symbols = "!@#$%^&*()-_+=~`;:',<>/?";
 
-LengthRangeEl.addEventListener("mousemove", pwLengthModified);
+length.textContent = "Password Length: " + length.value;
+lengthRange.addEventListener("mousemove", newLength);
+function newLength() {
+  if (length != lengthRange.value) {
+    writePassword();
+    length = lengthRange.value;
+  }
+  lengthEl.textContent = "Password Length: " + lengthRange.value;
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -26,24 +34,25 @@ function generatePassword() {
   password = "";
   var possibleChars = "";
 
-  if(symbolsCheckboxEl.checked) {
+  if(symbolsCheckbox.checked) {
     possibleChars += symbols;
   }
-  if(lowercaseCheckboxEl.checked) {
+  if(lowercaseCheckbox.checked) {
     possibleChars += lowercase;
   }
-  if(uppercaseCheckboxEl.checked) {
+  if(uppercaseCheckbox.checked) {
     possibleChars += uppercase;
   }
-  if(numbersCheckboxEl.checked) {
+  if(numbersCheckbox.checked) {
     possibleChars += numbers;
   }
 
-  for (let i=0; i<LengthRangeEl.value; i++){
-    password += allowableCharacters.charAt(Math.floor(Math.random() * allowableCharacters.length));
+  for (let i=0; i<lengthRange.value; i++){
+    password += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
   }
 
   return password;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
