@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2 id="GeneratePass">Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+
+          <div>
+          <input id="length-range" type="range" min="8" max="128" step="1" value="12">
+          <br><label for="length-range" id="length-label">Password Length: </label><br>
+          </div>
+
+          <div>
+            <input type="checkbox" id="allow-symbols" name="allow-symbols" checked>
+            <label for="allow-symbols">Include Symbols?</label><br>
+          </div>
+
+          <div>
+            <input type="checkbox" id="allow-lowercase" name="allow-lowercase" checked>
+            <label for="allow-lowercase">Include Lowercase?</label><br>
+          </div>
+
+          <div>
+            <input type="checkbox" id="allow-uppercase" name="allow-uppercase" checked>
+            <label for="allow-uppercase">Include Uppercase?</label><br>
+          </div>
+
+          <div>
+            <input type="checkbox" id="allow-numbers" name="allow-numbers" checked>
+            <label for="allow-numbers">Include Numbers?</label><br>
+          </div>
+
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
