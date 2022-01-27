@@ -12,7 +12,7 @@ const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";
 const symbols = "!@#$%^&*()-_+=~`;:',<>/?";
 
-length.textContent = "Password Length: " + length.value;
+length.textContent = "Password Length";
 lengthRange.addEventListener("mousemove", newLength);
 function newLength() {
   if (length != lengthRange.value) {
